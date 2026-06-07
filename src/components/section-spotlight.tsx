@@ -28,18 +28,20 @@ export function SectionSpotlight() {
       {/* Background tilted cards — 2 of them, positioned absolutely
           and peeking from the top of the section. Use the same 3D transform
           as the original (perspective 800px, rotateX 7.5deg, rotateY -15deg,
-          rotateZ 2.5deg). */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 px-7 md:px-7">
+          rotateZ 2.5deg).
+          aspect-[24/9] + top-[-60px] shrinks the cards and pulls them
+          above the section so they don't overlap the badge / h2 below. */}
+      <div className="pointer-events-none absolute inset-x-0 -top-15 z-0 px-7 md:px-7">
         <div className="grid grid-cols-12 gap-4">
           <BackgroundCard
             src={SPOTLIGHT.cardStack.backImages[0]}
             alt=""
-            className="col-span-5 col-start-1 aspect-[16/9]"
+            className="col-span-5 col-start-1 aspect-[24/9]"
           />
           <BackgroundCard
             src={SPOTLIGHT.cardStack.backImages[1]}
             alt=""
-            className="col-span-5 col-start-8 aspect-[16/9]"
+            className="col-span-5 col-start-8 aspect-[24/9]"
           />
         </div>
       </div>
@@ -51,6 +53,10 @@ export function SectionSpotlight() {
           "grid-cols-6 lg:grid-cols-12",
           "gap-x-4 md:gap-x-4",
           "px-7 md:px-7",
+          // pt-32 keeps the h2 below the back cards' bottom edge so
+          // the tall Boldonse ascenders don't get clipped by
+          // overflow-hidden on the section.
+          "pt-32 md:pt-24",
           "items-center"
         )}
       >
@@ -69,12 +75,16 @@ export function SectionSpotlight() {
             {SPOTLIGHT.badge}
           </span>
 
-          {/* h2 headline — Boldonse display, 56/120px, uppercase */}
+          {/* h2 headline — Boldonse display, 56/100px, uppercase.
+              Leading is 1.0 (was 0.92) because Boldonse's tall
+              ascenders extend above the cap height — tighter leading
+              clips the tops of the letters. */}
           <h2
             className={cn(
-              "font-heading text-[56px] md:text-[clamp(80px,9vw,120px)]",
+              "font-heading text-[40px] sm:text-[56px]",
+              "md:text-[clamp(56px,7vw,100px)]",
               "font-normal uppercase",
-              "leading-[0.85] md:leading-[0.95]"
+              "leading-[1.0] md:leading-[1.0]"
             )}
           >
             {SPOTLIGHT.headline}

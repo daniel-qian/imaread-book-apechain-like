@@ -54,10 +54,13 @@ export function MainFooter() {
 
         {/* === Decorative band (empty in clone) ===
             Original had `<canvas>` here rendering the same sphere at a
-            different aspect ratio. We leave the space but render nothing. */}
+            different aspect ratio. We leave a small amount of space
+            (just enough to separate the columns from the bottom row)
+            but the desktop placeholder is intentionally compact — the
+            280px+ gap from the spec was too tall and looked broken. */}
         <div
           aria-hidden
-          className="w-full aspect-[3.8] md:aspect-[3]"
+          className="w-full aspect-[6] md:aspect-[6]"
         />
 
         {/* === Bottom row: copyright + legal links === */}
