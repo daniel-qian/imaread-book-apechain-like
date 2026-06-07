@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import { Boldonse } from "next/font/google";
 import "./globals.css";
+import { TopNav } from "@/components/top-nav";
 
 // Display font: Boldonse (close substitute for Manuka — geometric, bold,
 // high x-height contrast, free via Google Fonts).
@@ -43,6 +44,7 @@ export default function RootLayout({
       className={`${boldonse.variable} ${dmSans.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ape-dark-navy text-white">
+        <TopNav />
         {children}
       </body>
     </html>
