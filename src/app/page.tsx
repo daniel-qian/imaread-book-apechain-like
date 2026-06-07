@@ -12,6 +12,7 @@
 
 import { HeroCarousel } from "@/components/hero-carousel";
 import { SectionSpotlight } from "@/components/section-spotlight";
+import { SectionAppsGrid } from "@/components/section-apps-grid";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <HeroCarousel />
       <div className="bg-ape-grey text-black">
         <SectionSpotlight />
+        <SectionAppsGrid />
       </div>
     </main>
   );
