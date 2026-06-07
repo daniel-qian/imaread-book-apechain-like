@@ -1,20 +1,35 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans, DM_Mono } from "next/font/google";
+import { Boldonse } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Display font: Boldonse (close substitute for Manuka — geometric, bold,
+// high x-height contrast, free via Google Fonts).
+const boldonse = Boldonse({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Body font: DM Sans (matches the original's body).
+const dmSans = DM_Sans({
   subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+// Mono font: DM Mono (matches the original's button labels).
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "APECHAIN — Clone",
+  description: "Pixel-perfect clone of apechain.com built with Next.js + shadcn/ui + Tailwind v4.",
 };
 
 export default function RootLayout({
@@ -25,9 +40,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${boldonse.variable} ${dmSans.variable} ${dmMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-ape-dark-navy text-white">
+        {children}
+      </body>
     </html>
   );
 }
