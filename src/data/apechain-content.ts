@@ -193,42 +193,44 @@ export const TOP_NAV: TopNav = {
 // =============================================================
 // FOOTER
 // =============================================================
+// Text casing follows the live site's DOM (not uppercased — the column
+// headings and copyright get uppercased by CSS `uppercase`).
 export const FOOTER: FooterProps = {
-  backgroundImage: "/footer-bg.png",
+  backgroundImage: "/footer-bg.png", // unused — see main-footer.tsx notes
   columns: [
     {
-      heading: "BUILD ON APECHAIN",
+      heading: "Build on ApeChain",
       links: [
-        { label: "DOCS",          href: "https://docs.apechain.com/" },
-        { label: "MAINNET HUB",   href: "https://apechain.hub.caldera.xyz/" },
-        { label: "TESTNET HUB",   href: "https://curtis.hub.caldera.xyz/" },
-        { label: "BLOCK EXPLORER",href: "https://apescan.io" },
-        { label: "APE PORTAL",    href: "https://github.com/yuga-labs/ape-portal-public" },
+        { label: "Docs",           href: "https://docs.apechain.com/" },
+        { label: "Mainnet Hub",    href: "https://apechain.hub.caldera.xyz/" },
+        { label: "Testnet Hub",    href: "https://curtis.hub.caldera.xyz/" },
+        { label: "Block Explorer", href: "https://apescan.io" },
+        { label: "Ape Portal",     href: "https://github.com/yuga-labs/ape-portal-public" },
       ],
     },
     {
-      heading: "APECOIN",
+      heading: "ApeCoin",
       links: [
-        { label: "DISCORD",            href: "https://discord.gg/apecoindao" },
-        { label: "TWITTER / X",        href: "https://x.com/apecoin" },
-        { label: "OTHERSIDE CALENDAR", href: "https://othersidecalendar.apechain.com/" },
+        { label: "Discord",            href: "https://discord.gg/apecoindao" },
+        { label: "Twitter / X",        href: "https://x.com/apecoin" },
+        { label: "Otherside Calendar", href: "https://othersidecalendar.apechain.com/" },
       ],
     },
     {
-      heading: "APECHAIN",
+      heading: "ApeChain",
       links: [
-        { label: "BRIDGE",         href: "/portal#bridge" },
-        { label: "RELAY BRIDGE",   href: "/relay-bridge" },
-        { label: "THE BLUEPRINT",  href: "/the-blueprint" },
-        { label: "TELEGRAM",       href: "https://t.me/apechainofficial" },
-        { label: "TWITTER / X",    href: "https://x.com/ApeChainHUB" },
-        { label: "BRAND KIT",      href: "https://live.standards.site/apechain/" },
+        { label: "Bridge",        href: "/portal#bridge" },
+        { label: "Relay Bridge",  href: "/relay-bridge" },
+        { label: "The Blueprint", href: "/the-blueprint" },
+        { label: "Telegram",      href: "https://t.me/apechainofficial" },
+        { label: "Twitter / X",   href: "https://x.com/ApeChainHUB" },
+        { label: "Brand Kit",     href: "https://live.standards.site/apechain/" },
       ],
     },
   ],
-  copyrightText: "© 2026 APE FOUNDATION",
+  copyrightText: "© 2026 Ape Foundation",
   legalLinks: [
-    { label: "TERMS OF SERVICE", href: "/terms-of-service" },
-    { label: "PRIVACY NOTICE",   href: "/privacy-notice" },
+    { label: "Terms of Service", href: "/terms-of-service" },
+    { label: "Privacy Notice",   href: "/privacy-notice" },
   ],
 };

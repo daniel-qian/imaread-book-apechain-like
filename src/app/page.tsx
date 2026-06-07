@@ -4,16 +4,18 @@
 // can be developed and merged in their own worktrees.
 //
 // Section order (top to bottom):
-//   1. HeroCarousel      (done: feature/hero-carousel)
-//   2. SectionSpotlight  (done: feature/spotlight)
-//   3. SectionGridCarousel / AppsGrid     (TODO)
-//   4. SectionDiscoverApps / Marquee       (TODO)
-//   5. MainFooter                          (TODO)
+//   1. HeroCarousel
+//   2. SectionSpotlight
+//   3. SectionAppsGrid
+//   4. SectionDiscoverMarquee
+//   5. MainFooter (dark, OUTSIDE the bg-ape-grey light wrapper —
+//                 matches the original site's <footer.MainFooter> position)
 
 import { HeroCarousel } from "@/components/hero-carousel";
 import { SectionSpotlight } from "@/components/section-spotlight";
 import { SectionAppsGrid } from "@/components/section-apps-grid";
 import { SectionDiscoverMarquee } from "@/components/section-discover-marquee";
+import { MainFooter } from "@/components/main-footer";
 
 export default function Home() {
   return (
@@ -27,6 +29,8 @@ export default function Home() {
         <SectionAppsGrid />
         <SectionDiscoverMarquee />
       </div>
+      {/* Dark footer sits OUTSIDE the light wrapper per the original. */}
+      <MainFooter />
     </main>
   );
 }
