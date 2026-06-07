@@ -120,55 +120,57 @@ export const APP_CARDS: AppCard[] = [
 
 // =============================================================
 // DISCOVER APPS (marquee)
+//
+// 2 rows of 5 categories total (matches the real apechain.com DOM):
+//   Row 1 (left-scrolling): INTELLECTUAL PROPERTY, COLLECTIBLES, FINANCE
+//   Row 2 (right-scrolling): GAMES, INFRASTRUCTURE
+//
+// Each link has BOTH a text label and a thumbnail (per the DOM, not
+// alternating text-only / icon-only tokens). The content is duplicated
+// in the component to enable seamless CSS marquee loop.
 // =============================================================
 export const DISCOVER_APPS: DiscoverApps = {
   rows: [
     {
       direction: "left",
       speed: "default",
-      tokens: [
-        { kind: "text", label: "INTELLECTUAL PROPERTY" },
-        { kind: "icon", src: `${CTF}/48OMy3cRzsdFbNYR8el1Zk/b2a2036389810b0ac2e3c6dff023d3fb/apeChain-thumbnail-608x336-MadeByApes.jpg`, alt: "MADE BY APES" },
-        { kind: "text", label: "COLLECTIBLES" },
-        { kind: "icon", src: `${CTF}/1sIW0LN0KGP4fhqHJpaIbH/88bac67f63a64d4d6db478bc08f5b734/608x336_opensea.jpg`, alt: "OPENSEA" },
-        { kind: "text", label: "FINANCE" },
-        { kind: "icon", src: `${CTF}/1e40wdhm9t2mNSVf2wczv4/fcff96473ce757556dfaf2739487b133/apeChain-thumbnail-608x336-OpenOcean.jpg`, alt: "OPENOCEAN" },
-        { kind: "text", label: "GAMES" },
-        { kind: "icon", src: `${CTF}/7Cn10d3ErtqfrG6H7EFGg8/1942238297ed97ef14f5e9f1049389f7/apeChain-thumbnail-608x336-Otherside.jpg`, alt: "OTHERSIDE" },
-        { kind: "text", label: "INFRASTRUCTURE" },
-        { kind: "icon", src: `${CTF}/5qTr399OMjp1GwmRw6ihS8/ba02aefbeab5480901bddea9ea4b523b/apeChain-thumbnail-608x336-Alchemy.jpg`, alt: "ALCHEMY" },
+      links: [
+        {
+          label: "INTELLECTUAL PROPERTY",
+          href: "/apps?f=intellectual-property",
+          iconSrc: `${CTF}/48OMy3cRzsdFbNYR8el1Zk/b2a2036389810b0ac2e3c6dff023d3fb/apeChain-thumbnail-608x336-MadeByApes.jpg`,
+          iconAlt: "MADE BY APES",
+        },
+        {
+          label: "COLLECTIBLES",
+          href: "/apps?f=collectibles",
+          iconSrc: `${CTF}/1sIW0LN0KGP4fhqHJpaIbH/88bac67f63a64d4d6db478bc08f5b734/608x336_opensea.jpg`,
+          iconAlt: "OPENSEA",
+        },
+        {
+          label: "FINANCE",
+          href: "/apps?f=finance",
+          iconSrc: `${CTF}/1e40wdhm9t2mNSVf2wczv4/fcff96473ce757556dfaf2739487b133/apeChain-thumbnail-608x336-OpenOcean.jpg`,
+          iconAlt: "OPENOCEAN",
+        },
       ],
     },
     {
       direction: "right",
       speed: "default",
-      tokens: [
-        { kind: "text", label: "FINANCE" },
-        { kind: "icon", src: `${CTF}/1e40wdhm9t2mNSVf2wczv4/fcff96473ce757556dfaf2739487b133/apeChain-thumbnail-608x336-OpenOcean.jpg`, alt: "OPENOCEAN" },
-        { kind: "text", label: "GAMES" },
-        { kind: "icon", src: `${CTF}/7Cn10d3ErtqfrG6H7EFGg8/1942238297ed97ef14f5e9f1049389f7/apeChain-thumbnail-608x336-Otherside.jpg`, alt: "OTHERSIDE" },
-        { kind: "text", label: "INFRASTRUCTURE" },
-        { kind: "icon", src: `${CTF}/5qTr399OMjp1GwmRw6ihS8/ba02aefbeab5480901bddea9ea4b523b/apeChain-thumbnail-608x336-Alchemy.jpg`, alt: "ALCHEMY" },
-        { kind: "text", label: "INTELLECTUAL PROPERTY" },
-        { kind: "icon", src: `${CTF}/48OMy3cRzsdFbNYR8el1Zk/b2a2036389810b0ac2e3c6dff023d3fb/apeChain-thumbnail-608x336-MadeByApes.jpg`, alt: "MADE BY APES" },
-        { kind: "text", label: "COLLECTIBLES" },
-        { kind: "icon", src: `${CTF}/1sIW0LN0KGP4fhqHJpaIbH/88bac67f63a64d4d6db478bc08f5b734/608x336_opensea.jpg`, alt: "OPENSEA" },
-      ],
-    },
-    {
-      direction: "left",
-      speed: "default",
-      tokens: [
-        { kind: "text", label: "GAMES" },
-        { kind: "icon", src: `${CTF}/7Cn10d3ErtqfrG6H7EFGg8/1942238297ed97ef14f5e9f1049389f7/apeChain-thumbnail-608x336-Otherside.jpg`, alt: "OTHERSIDE" },
-        { kind: "text", label: "INFRASTRUCTURE" },
-        { kind: "icon", src: `${CTF}/5qTr399OMjp1GwmRw6ihS8/ba02aefbeab5480901bddea9ea4b523b/apeChain-thumbnail-608x336-Alchemy.jpg`, alt: "ALCHEMY" },
-        { kind: "text", label: "INTELLECTUAL PROPERTY" },
-        { kind: "icon", src: `${CTF}/48OMy3cRzsdFbNYR8el1Zk/b2a2036389810b0ac2e3c6dff023d3fb/apeChain-thumbnail-608x336-MadeByApes.jpg`, alt: "MADE BY APES" },
-        { kind: "text", label: "COLLECTIBLES" },
-        { kind: "icon", src: `${CTF}/1sIW0LN0KGP4fhqHJpaIbH/88bac67f63a64d4d6db478bc08f5b734/608x336_opensea.jpg`, alt: "OPENSEA" },
-        { kind: "text", label: "FINANCE" },
-        { kind: "icon", src: `${CTF}/1e40wdhm9t2mNSVf2wczv4/fcff96473ce757556dfaf2739487b133/apeChain-thumbnail-608x336-OpenOcean.jpg`, alt: "OPENOCEAN" },
+      links: [
+        {
+          label: "GAMES",
+          href: "/apps?f=games",
+          iconSrc: `${CTF}/7Cn10d3ErtqfrG6H7EFGg8/1942238297ed97ef14f5e9f1049389f7/apeChain-thumbnail-608x336-Otherside.jpg`,
+          iconAlt: "OTHERSIDE",
+        },
+        {
+          label: "INFRASTRUCTURE",
+          href: "/apps?f=infrastructure",
+          iconSrc: `${CTF}/5qTr399OMjp1GwmRw6ihS8/ba02aefbeab5480901bddea9ea4b523b/apeChain-thumbnail-608x336-Alchemy.jpg`,
+          iconAlt: "ALCHEMY",
+        },
       ],
     },
   ],

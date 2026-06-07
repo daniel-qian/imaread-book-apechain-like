@@ -13,6 +13,7 @@
 import { HeroCarousel } from "@/components/hero-carousel";
 import { SectionSpotlight } from "@/components/section-spotlight";
 import { SectionAppsGrid } from "@/components/section-apps-grid";
+import { SectionDiscoverMarquee } from "@/components/section-discover-marquee";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <div className="bg-ape-grey text-black">
         <SectionSpotlight />
         <SectionAppsGrid />
+        <SectionDiscoverMarquee />
       </div>
     </main>
   );

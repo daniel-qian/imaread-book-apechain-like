@@ -81,18 +81,30 @@ export interface AppCard {
 
 // ---------- Discover (Marquee) ----------
 
+export interface MarqueeLink {
+  /** Category label (e.g., "INTELLECTUAL PROPERTY") — rendered as huge uppercase text */
+  label: string;
+  /** Href for the category link (e.g., "/apps?f=intellectual-property") */
+  href: string;
+  /** Thumbnail icon URL (608×336 source, displayed 1:1 with rounded corners) */
+  iconSrc: string;
+  /** Alt text for the thumbnail (e.g., "MADE BY APES") */
+  iconAlt: string;
+}
+
 export interface MarqueeRow {
   /** Direction: "left" or "right" */
   direction: "left" | "right";
   /** Animation speed: "fast" (40s), "default" (50s), "slow" (60s) */
   speed: "fast" | "default" | "slow";
-  /** Tokens to render in the row. Each token is either a plain text label
-   *  or an icon (logo image). Repeat the array to create a seamless loop. */
-  tokens: Array<{ kind: "text"; label: string } | { kind: "icon"; src: string; alt: string }>;
+  /** Links to render in the row. Each link is a category with both a text
+   *  label and a thumbnail. The content is duplicated in the DOM to create
+   *  a seamless infinite-scroll marquee loop. */
+  links: MarqueeLink[];
 }
 
 export interface DiscoverApps {
-  /** The 3 rows of the marquee */
+  /** The rows of the marquee (2 rows in the original apechain.com DOM) */
   rows: MarqueeRow[];
   /** "BROWSE ALL APPS" CTA button */
   cta: { label: string; href: string };
