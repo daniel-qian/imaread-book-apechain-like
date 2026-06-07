@@ -149,9 +149,36 @@
 
 /* === Keyframes & utilities for hero/discover sections === */
 
-/* Hero 3D-sphere placeholder shimmer (when real WebGL is replaced by gradient) */
+/* Hero 3D-sphere placeholder: a large radial-gradient disc with a subtle
+   rotating shimmer. Replaces the WebGL canvas from the original site. */
+.hero-sphere {
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(14, 98, 255, 0.55) 0%,
+      rgba(14, 98, 255, 0.25) 22%,
+      rgba(7, 30, 80, 0.10) 50%,
+      rgba(3, 10, 33, 0) 75%),
+    linear-gradient(180deg, #030a21 0%, #0a1330 100%);
+  pointer-events: none;
+  filter: saturate(1.1);
+}
+.hero-sphere::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    conic-gradient(from 0deg at 50% 50%,
+      rgba(162, 129, 255, 0.0) 0deg,
+      rgba(162, 129, 255, 0.18) 60deg,
+      rgba(235, 130, 128, 0.18) 120deg,
+      rgba(102, 240, 255, 0.16) 180deg,
+      rgba(162, 129, 255, 0.0) 360deg);
+  filter: blur(40px);
+  animation: hero-sphere-rotate 60s linear infinite;
+  pointer-events: none;
+}
 @keyframes hero-sphere-rotate {
-  0% { transform: rotate(0deg); }
+  0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 

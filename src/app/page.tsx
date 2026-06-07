@@ -1,9 +1,14 @@
+// src/app/page.tsx
+//
+// Landing page composition. Sections are imported individually so they
+// can be developed and merged in their own worktrees.
+
+import { HeroCarousel } from "@/components/hero-carousel";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-muted-foreground">
-        Clone target not yet built. Run <code className="font-mono text-foreground">/clone-website</code> to start.
-      </p>
+    <main className="relative">
+      <HeroCarousel />
     </main>
   );
 }
