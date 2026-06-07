@@ -42,7 +42,7 @@ export function ApechainLogo({ className, ...props }: SVGProps<SVGSVGElement>) {
         <path d="M81 26.1V10.8h4.4v11.4h2.3V10.8h4.3v27H87.7V25.5h-2.3v12.3H81V26.1Z" />
         <path d="M105.5 15.4c0-1.1.3-1.7 1-1.7s1 .6 1 1.7v18c0 1.1-.3 1.7-1 1.7s-1-.6-1-1.7v-18Z" />
         <path d="M115.6 24.5 113.3 10.8h-4.6v27h3.7V22.2h.1l3 15.6h3.9v-27h-3.7v13.7h-.1Z" />
-        <path d="M0 .5C0 .3.3 0 .6 0H139.4c.3 0 .6.3.6.5v46.9c0 .3-.3.6-.6.6H.6C.3 48 0 47.7 0 47.5V.5Zm4 43.5V4h132v40H4Z" />
+        <path fillRule="evenodd" clipRule="evenodd" d="M0 .5C0 .3.3 0 .6 0H139.4c.3 0 .6.3.6.5v46.9c0 .3-.3.6-.6.6H.6C.3 48 0 47.7 0 47.5V.5Zm4 43.5V4h132v40H4Z" />
       </g>
     </svg>
   );
