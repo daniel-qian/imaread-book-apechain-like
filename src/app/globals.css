@@ -182,6 +182,13 @@
   100% { transform: rotate(360deg); }
 }
 
+/* Hero slide crossfade — 500ms ease-out fade-in on each slide change.
+   Triggered by remounting the <Image> wrapper with `key={active}`. */
+@keyframes hero-fade-in {
+  0%   { opacity: 0; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1.00); }
+}
+
 /* Discover Apps marquee: three rows, different speeds, alternate direction */
 @keyframes marquee-scroll-left {
   0% { transform: translateX(0%); }

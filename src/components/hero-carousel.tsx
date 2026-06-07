@@ -131,23 +131,17 @@ export function HeroCarousel() {
             LAUNCH
             <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-          <a
-            href="/apps"
-            className={cn(
-              "inline-flex items-center gap-2",
-              "font-mono text-[12px] font-medium uppercase tracking-widest text-white",
-              "hover:opacity-80 transition-opacity"
-            )}
-          >
-            SEE ALL APPS
-            <span aria-hidden>▶</span>
-          </a>
         </div>
       </div>
 
-      {/* Hero image (right half) — replaces the 3D WebGL scene */}
+      {/* Hero image (right half) — replaces the 3D WebGL scene.
+          The outer wrapper has a `key={active}` so React remounts it
+          on slide change, retriggering the fade-in animation. */}
       <div className="col-start-1 col-span-6 md:col-start-7 md:col-span-6 z-0 relative aspect-[4/3] md:aspect-auto md:h-full">
-        <div className="absolute inset-0 overflow-hidden rounded-2">
+        <div
+          key={active}
+          className="absolute inset-0 overflow-hidden rounded-2 animate-[hero-fade-in_500ms_ease-out]"
+        >
           <Image
             src={item.heroImage}
             alt={item.title}
@@ -162,18 +156,36 @@ export function HeroCarousel() {
         </div>
       </div>
 
-      {/* Tab buttons row (bottom-center) */}
-      <div className="col-start-1 col-span-6 md:col-start-7 md:col-span-6 row-start-2 z-20 mt-6 flex items-center justify-center gap-2">
-        {HERO_ITEMS.map((it, i) => (
-          <TabButton
-            key={it.slug}
-            item={it}
-            active={i === active}
-            // Show progress only on the active tab. When not active, show 0.
-            progress={i === active ? progress : 0}
-            onClick={() => goTo(i)}
-          />
-        ))}
+      {/* Right-side column: "SEE ALL APPS" link + tab buttons row.
+          Original: <div class="pointer-events-auto col-start-1 md:col-start-8
+          col-span-8 md:col-span-4 w-full flex flex-col gap-16
+          items-center md:items-end justify-end text-right pb-4 md:pb-0
+          mt-48 md:mt-0"> — right-aligned on desktop, centered on mobile. */}
+      <div className="pointer-events-auto col-start-1 md:col-start-8 col-span-8 md:col-span-4 w-full flex flex-col gap-16 items-center md:items-end justify-end text-right pb-4 md:pb-0 mt-48 md:mt-0">
+        <a
+          href="/apps"
+          className={cn(
+            "inline-flex items-center gap-2",
+            "font-mono text-[12px] font-medium uppercase tracking-widest text-white",
+            "hover:opacity-80 transition-opacity"
+          )}
+        >
+          See All Apps
+          <Play className="size-3 fill-white" strokeWidth={0} />
+        </a>
+
+        <div className="flex gap-8">
+          {HERO_ITEMS.map((it, i) => (
+            <TabButton
+              key={it.slug}
+              item={it}
+              active={i === active}
+              // Show progress only on the active tab. When not active, show 0.
+              progress={i === active ? progress : 0}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -229,11 +241,13 @@ function TabButton({
       aria-label={`Show ${item.title}`}
       aria-pressed={active}
       className={cn(
-        "tab-carousel-button relative size-12 rounded-lg overflow-hidden",
-        "border-2",
+        // Original: "transition-all duration-300 ease-in-out relative
+        // rounded-8 overflow-hidden size-48 border-2 ..."
+        "transition-all duration-300 ease-in-out",
+        "relative rounded-lg overflow-hidden size-12",
         active
-          ? "border-white shadow-[0_0_24px_0_rgba(255,255,255,0.70)] scale-105"
-          : "border-transparent hover:scale-105"
+          ? "border-2 border-white shadow-[0_0_24px_0_rgba(255,255,255,0.70)] scale-105"
+          : "border-2 border-transparent shadow-[0_0_0_0_rgba(255,255,255,0.70)] hover:scale-105"
       )}
     >
       <div className="absolute inset-0">
